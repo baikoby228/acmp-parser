@@ -34,6 +34,9 @@ def check_test(FORMAT_FILE_NAME: str, test: list):
                 if pos == len(test):
                     #print('bad')
                     return False
+                if not isinstance(test[pos], int):
+                    #print('not int')
+                    return False
                 mp[name].append(test[pos])
                 pos += 1
 
