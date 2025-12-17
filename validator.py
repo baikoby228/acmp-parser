@@ -29,6 +29,7 @@ def check_test(FORMAT_FILE_NAME: str, test: list):
             else:
                 size = int(size)
             name = row[2]
+            mp[name] = []
             for i in range(size):
                 if pos == len(test):
                     #print('bad')

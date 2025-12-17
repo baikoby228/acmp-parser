@@ -14,6 +14,7 @@ def get_tests(id_task: int) -> list:
 
     response = requests.get(URL, params=params, headers=header)
     soup = BeautifulSoup(response.text, "lxml")
+    #print(soup)
 
     table = soup.find('table', class_='main')
     rows = table.find_all('tr', class_='white2')
@@ -21,11 +22,13 @@ def get_tests(id_task: int) -> list:
     res = []
     for row in rows:
         a = []
-        for x in row.find_all('td')[1].text.split():
+        for x in row.find_all('td')[1].stripped_strings:
+            a.extend(x.split())
+        for i in range(len(a)):
             try:
-                a.append(int(x))
+                a[i] = int(a[i])
             except ValueError:
-                a.append(x)
+                pass
         res.append(a)
 
     return res

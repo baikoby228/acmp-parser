@@ -2,8 +2,8 @@ from parser import get_tests
 from validator import check_test
 
 L = 1
-R = 6
-FORMAT_FILE_NAME = 'test.txt'
+R = 1000
+FORMAT_FILE_NAME = 'format.txt'
 if __name__ == '__main__':
     for i in range(L, R + 1):
         print('start check task', i)
