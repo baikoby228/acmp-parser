@@ -20,7 +20,13 @@ def get_tests(id_task: int) -> list:
 
     res = []
     for row in rows:
-        res.append([int(x) for x in row.find_all('td')[1].text.split()])
+        a = []
+        for x in row.find_all('td')[1].text.split():
+            try:
+                a.append(int(x))
+            except ValueError:
+                a.append(x)
+        res.append(a)
 
     return res
 
