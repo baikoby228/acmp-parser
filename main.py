@@ -39,4 +39,6 @@ if __name__ == '__main__':
     for x in res:
         print(x)
 
-    print(f"Время: {end - start:.6f} сек")
+    minutes = int((end - start) // 60)
+    seconds = (end - start) % 60
+    print(f"{minutes} мин {seconds:.2f} сек")
