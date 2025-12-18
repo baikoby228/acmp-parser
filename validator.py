@@ -23,12 +23,16 @@ def check_test(FORMAT_FILE_NAME: str, test: list):
             pos += 1
 
         if type == 'ints':
-            size = row[1]
-            if 'a' <= size[0] <= 'z':
-                size = mp[size]
-            else:
-                size = int(size)
-            name = row[2]
+            name = row[1]
+
+            size = 1
+            for i in range(2, len(row)):
+                #print('*=', row[i])
+                if 'a' <= row[i] <= 'z':
+                    size *= mp[row[i]]
+                else:
+                    size *= int(row[i])
+
             mp[name] = []
             for i in range(size):
                 if pos == len(test):
